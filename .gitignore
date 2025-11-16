@@ -5,5 +5,5 @@
 .terraform.lock.hcl
 
 # Ignore SSH public key
-id_rsa.pub
-id_rsa
+#id_rsa.pub
+#id_rsa
