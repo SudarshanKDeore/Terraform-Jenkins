@@ -1,9 +1,0 @@
-# Ignore Terraform directory
-.terraform/
-
-# Ignore Terraform lock file
-.terraform.lock.hcl
-
-# Ignore SSH public key
-id_rsa.pub
-id_rsa
