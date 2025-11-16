@@ -22,7 +22,11 @@ provider "aws" {
 # 3️⃣ Create a Key Pair (optional)
 resource "aws_key_pair" "example_key" {
   key_name   = "terraform-demo-key"
+<<<<<<< HEAD
   public_key = file("${path.module}/id_rsa.pub")  # Make sure this file exists
+=======
+  public_key = file("~/.ssh/id_rsa.pub")  # Make sure this file exists
+>>>>>>> 3d479b842da850bd26db903b463740f59b6e5106
 }
 
 # 4️⃣ Create a Security Group
