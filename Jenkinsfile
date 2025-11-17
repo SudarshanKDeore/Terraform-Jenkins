@@ -1,6 +1,10 @@
 pipeline {
     agent any
 
+      environment {
+        TF_PLUGIN_CACHE_DIR = "/opt/terraform/plugins"
+      }    
+    
     parameters {
         choice(
             name: 'action',
@@ -25,13 +29,16 @@ pipeline {
 
         stage("Terraform Init") {
             steps {
-                sh "terraform init -reconfigure"
+                sh '''
+                  mkdir -p "$TF_PLUGIN_CACHE_DIR"
+                  terraform init -input=false
+              '''
             }
         }
 
         stage("Terraform Plan") {
             steps {
-                sh "terraform plan"
+                sh 'terraform plan -out=tfplan'
             }
         }
 
