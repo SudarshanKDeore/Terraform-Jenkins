@@ -2,6 +2,7 @@ pipeline {
     agent any
 
       environment {
+        TF_HOME = "${WORKSPACE}/terraform"
         TF_PLUGIN_CACHE_DIR = "/opt/terraform/plugins"
       }    
     
