@@ -15,8 +15,10 @@ pipeline {
             steps {
                 checkout scmGit(
                     branches: [[name: '*/main']],
-                    extensions: [],
-                    userRemoteConfigs: [[url: 'https://github.com/SudarshanKDeore/Terraform-Jenkins.git']]
+                    userRemoteConfigs: [[url: 'https://github.com/SudarshanKDeore/Terraform-Jenkins.git']],
+                    extensions: [
+                        [$class: 'CloneOption', noTags: true, shallow: true, depth: 1]
+                    ]
                 )
             }
         }
